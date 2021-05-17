@@ -26,11 +26,7 @@ while len(guessed) < 50:
 
     # including an EXIT so the user can quit the game
     if answer == "Exit":
-        missed_states = []
-        for state in states:
-            if state not in guessed:
-                missed_states.append(state)
-
+        missed_states = [state for state in states if state not in guessed]
         # creating a data frame that holds the missed states
         new_data = pandas.DataFrame(missed_states)
         new_data.to_csv("States_To_Learn.csv")
